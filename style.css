@@ -602,12 +602,40 @@ footer {
 
 /* --- RESPONSIVE DESIGN --- */
 
+
+
 @media screen and (max-width: 768px) {
-    /* Ajustement de la bannière (Hero) */
-    .hero-content {
-        flex-direction: column;
-        padding: 50px 5%;
+    /* 1. Correction du Hero (Le haut du site) */
+    .hero {
+        flex-direction: column; /* On empile le gris et le noir verticalement */
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .hero-left {
+        flex: none;
+        width: 100%;
+        padding: 100px 5% 50px;
+        clip-path: none; /* On enlève la pente qui ne marche pas sur mobile */
         text-align: center;
+    }
+
+    .hero-right {
+        flex: none;
+        width: 100%;
+        margin-left: 0;
+        height: 400px;
+        background-color: #000;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem; /* On réduit la taille du nom */
+    }
+
+    .profile-img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
     }
 
     .social-icons {
@@ -615,33 +643,49 @@ footer {
         margin-bottom: 20px;
     }
 
-    /* Ajustement des services (3 colonnes -> 1 colonne) */
-    .services-container {
-        grid-template-columns: 1fr;
-        padding: 0 5%;
+    /* 2. Correction de la navigation */
+    nav {
+        flex-direction: column;
+        padding: 20px;
+        position: relative; /* On remet la nav dans le flux pour qu'elle ne cache rien */
+        background: #D7D7D7;
     }
 
-    /* Ajustement du Portfolio (2 colonnes -> 1 colonne) */
+    .nav-links {
+        margin-top: 20px;
+        padding: 0;
+    }
+
+    .nav-links a {
+        color: #000; /* Texte noir sur fond gris mobile */
+        font-size: 11px;
+        padding: 8px 12px;
+    }
+
+    /* 3. Ajustement des Services & Skills */
+    .services-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        gap: 30px;
+    }
+
+    .skill-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour les logos */
+        gap: 20px;
+    }
+
+    /* 4. Ajustement du Portfolio */
     .portfolio-grid {
         grid-template-columns: 1fr;
-        padding: 0 5%;
+        padding: 0;
     }
 
-    /* Ajustement du Formulaire de Contact */
-    .contact-section {
-        padding: 50px 5%;
+    /* 5. Ajustement Global */
+    .about-section, .skills-section, .contact-section {
+        padding: 60px 5%;
     }
 
-    .contact-form {
-        width: 100%;
-    }
-
-    /* Titres plus petits sur mobile */
-    h1 {
-        font-size: 30px;
-    }
-    
-    h2 {
-        font-size: 24px;
+    .title-box h2 {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
     }
 }
