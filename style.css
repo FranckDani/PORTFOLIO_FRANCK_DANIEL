@@ -603,89 +603,61 @@ footer {
 /* --- RESPONSIVE DESIGN --- */
 
 
-
 @media screen and (max-width: 768px) {
-    /* 1. Correction du Hero (Le haut du site) */
+    /* --- HERO MOBILE (Image en haut, texte en bas) --- */
     .hero {
-        flex-direction: column; /* On empile le gris et le noir verticalement */
+        flex-direction: column;
         height: auto;
-        min-height: 100vh;
     }
 
     .hero-left {
-        flex: none;
+        order: 2; /* Passe le texte en dessous */
         width: 100%;
-        padding: 100px 5% 50px;
-        clip-path: none; /* On enlève la pente qui ne marche pas sur mobile */
-        text-align: center;
+        clip-path: none; /* Supprime la pente pour avoir un fond plat */
+        padding: 40px 10%;
+        background-color: #D7D7D7;
     }
 
     .hero-right {
-        flex: none;
+        order: 1; /* Passe l'image en haut */
         width: 100%;
+        height: 50vh; /* L'image prend la moitié de l'écran */
         margin-left: 0;
-        height: 400px;
         background-color: #000;
-    }
-
-    .hero-text h1 {
-        font-size: 2.5rem; /* On réduit la taille du nom */
+        align-items: center;
     }
 
     .profile-img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
+        height: 90%;
+        width: auto;
     }
 
-    .social-icons {
-        justify-content: center;
-        margin-bottom: 20px;
+    .hero-text h1 {
+        font-size: 2.5rem;
     }
 
-    /* 2. Correction de la navigation */
+    /* --- NAVIGATION MOBILE --- */
     nav {
-        flex-direction: column;
         padding: 20px;
-        position: relative; /* On remet la nav dans le flux pour qu'elle ne cache rien */
-        background: #D7D7D7;
     }
-
+    
     .nav-links {
-        margin-top: 20px;
-        padding: 0;
+        display: none; /* Cache les liens texte pour laisser place au menu burger si tu en as un */
     }
 
-    .nav-links a {
-        color: #000; /* Texte noir sur fond gris mobile */
-        font-size: 11px;
-        padding: 8px 12px;
+    /* --- GRILLES (1 Colonne partout) --- */
+    .services-grid, .skill-grid, .portfolio-grid {
+        grid-template-columns: 1fr !important;
+        gap: 40px;
     }
 
-    /* 3. Ajustement des Services & Skills */
-    .services-grid {
-        grid-template-columns: 1fr; /* Une seule colonne */
-        gap: 30px;
+    .skill-item img {
+        height: 100px; /* Logos plus grands comme sur ta capture */
     }
 
-    .skill-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 colonnes pour les logos */
-        gap: 20px;
-    }
-
-    /* 4. Ajustement du Portfolio */
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        padding: 0;
-    }
-
-    /* 5. Ajustement Global */
-    .about-section, .skills-section, .contact-section {
-        padding: 60px 5%;
-    }
-
-    .title-box h2 {
-        font-size: 1.5rem;
-        letter-spacing: 2px;
+    /* --- CONTACT --- */
+    .contact-section {
+        padding: 60px 10%;
     }
 }
+
