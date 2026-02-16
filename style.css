@@ -597,4 +597,51 @@ footer {
 
 .portfolio-card {
     transition: transform 0.4s ease, opacity 0.4s ease;
+
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+@media screen and (max-width: 768px) {
+    /* Ajustement de la bannière (Hero) */
+    .hero-content {
+        flex-direction: column;
+        padding: 50px 5%;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    /* Ajustement des services (3 colonnes -> 1 colonne) */
+    .services-container {
+        grid-template-columns: 1fr;
+        padding: 0 5%;
+    }
+
+    /* Ajustement du Portfolio (2 colonnes -> 1 colonne) */
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        padding: 0 5%;
+    }
+
+    /* Ajustement du Formulaire de Contact */
+    .contact-section {
+        padding: 50px 5%;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    /* Titres plus petits sur mobile */
+    h1 {
+        font-size: 30px;
+    }
+    
+    h2 {
+        font-size: 24px;
+    }
 }
