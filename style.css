@@ -600,31 +600,33 @@ footer {
 
 }
 
-/* --- RESPONSIVE DESIGN --- */
-
+/* --- RESPONSIVE DESIGN (FINAL CORRIGÉ) --- */
 
 @media screen and (max-width: 768px) {
-    /* --- HERO MOBILE (Image en haut, texte en bas) --- */
+    /* 1. On empile les deux parties du haut */
     .hero {
         flex-direction: column;
         height: auto;
     }
 
     .hero-left {
-        order: 2; /* Passe le texte en dessous */
         width: 100%;
-        clip-path: none; /* Supprime la pente pour avoir un fond plat */
-        padding: 40px 10%;
+        padding: 80px 5% 40px;
+        clip-path: none !important; /* On enlève la pente qui casse tout */
         background-color: #D7D7D7;
+        text-align: center;
+        order: 2; /* Le texte passe sous l'image */
     }
 
     .hero-right {
-        order: 1; /* Passe l'image en haut */
         width: 100%;
-        height: 50vh; /* L'image prend la moitié de l'écran */
+        height: 400px;
         margin-left: 0;
         background-color: #000;
-        align-items: center;
+        order: 1; /* L'image passe en haut */
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
     }
 
     .profile-img {
@@ -633,31 +635,41 @@ footer {
     }
 
     .hero-text h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
+        line-height: 1.2;
     }
 
-    /* --- NAVIGATION MOBILE --- */
-    nav {
-        padding: 20px;
-    }
-    
+    /* 2. Navigation : on cache les liens pour l'instant (évite le chevauchement) */
     .nav-links {
-        display: none; /* Cache les liens texte pour laisser place au menu burger si tu en as un */
+        display: none; 
     }
 
-    /* --- GRILLES (1 Colonne partout) --- */
+    /* 3. On passe toutes les grilles sur 1 seule colonne */
     .services-grid, .skill-grid, .portfolio-grid {
         grid-template-columns: 1fr !important;
-        gap: 40px;
+        gap: 30px;
+        padding: 0 5%;
     }
 
-    .skill-item img {
-        height: 100px; /* Logos plus grands comme sur ta capture */
+    .service-item, .skill-item {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .service-header {
+        justify-content: center;
     }
 
-    /* --- CONTACT --- */
-    .contact-section {
-        padding: 60px 10%;
+    /* 4. Ajustement des sections */
+    .about-section, .skills-section, .contact-section {
+        padding: 50px 5%;
+    }
+
+    .title-box {
+        padding: 10px 30px;
+    }
+
+    .title-box h2 {
+        font-size: 1.8rem;
     }
 }
-
